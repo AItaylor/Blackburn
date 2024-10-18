@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Taylor - Digital Business Card</title>
     <style>
+        /* General body styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -14,57 +16,112 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #f9f6ec; /* Cream/Off-White background */
         }
+
+        /* Card container styling */
         .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            max-width: 400px;
-            width: 100%;
+            background-color: #ffffff; /* White card */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Elegant shadow */
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            border-top: 5px solid #4b0082; /* Indigo Blue accent */
         }
+
+        /* Heading styling */
         h1 {
-            color: #333;
-            margin-bottom: 10px;
+            color: #4b0082; /* Indigo Blue */
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-family: 'Palatino Linotype', 'Book Antiqua', serif; /* Elegant font */
         }
+
+        /* Paragraph styling */
         p {
-            color: #666;
-            margin: 5px 0;
+            color: #333; /* Darker text for readability */
+            margin: 10px 0;
+            font-size: 1.1em;
         }
+
+        /* Strong emphasis styling */
+        strong {
+            color: #4b0082; /* Indigo Blue for emphasis */
+        }
+
+        /* Italics styling */
+        em {
+            color: #006400; /* Emerald Green for a special touch */
+        }
+
+        /* Download button styling */
         .download {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #007BFF;
+            padding: 10px 20px;
+            background-color: #4b0082; /* Indigo Blue */
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
+
+        /* Download button hover effect */
+        .download:hover {
+            background-color: #006400; /* Emerald Green on hover */
+        }
+
+        /* Social links styling */
         .social-links {
-            margin-top: 15px;
+            margin-top: 20px;
         }
+
         .social-links a {
-            margin-right: 10px;
-            color: #007BFF;
+            margin: 0 10px;
+            color: #006400; /* Emerald Green */
             text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            color: #4b0082; /* Indigo Blue on hover */
+        }
+
+        /* Placeholder for the Chi-Rho symbol */
+        .chi-rho {
+            font-size: 50px;
+            color: #FFD700; /* Gold color */
+            margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
     <div class="card">
+        <!-- Placeholder for Chi-Rho symbol -->
+        <div class="chi-rho">☧</div> <!-- Unicode placeholder for Chi-Rho symbol -->
+
+        <!-- Card content -->
         <h1>Michael Taylor</h1>
         <p><strong>Task Eliminator for Hire</strong></p>
         <p><em>Your Troubleshooter in Disguise (No Target Too Tough)</em></p>
-        <p>Email: michaelntaylor@gmail.com</p>
-        <p>Phone: (647) 535-1015</p>
-        <p>Address: 6D-7398 Yonge St UN641, Thornhill, ON L4J 8J2, CA</p>
+        <p>Email: <a href="mailto:michaelntaylor@gmail.com" style="color:#4b0082; text-decoration:none;">michaelntaylor@gmail.com</a></p>
+        <p>Phone: <a href="tel:+16475351015" style="color:#4b0082; text-decoration:none;">(647) 535-1015</a></p>
+        <p>Address: 6D 7398 Yonge St UN641, Thornhill, ON L4J 8J2, CA</p>
         <p><strong>Note:</strong> Reliable Solutions with a Personal Touch</p>
+
+        <!-- Social Media Links -->
         <div class="social-links">
             <a href="https://github.com/AItaylor" target="_blank">GitHub</a>
             <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
         </div>
+
+        <!-- Download vCard button -->
         <a href="michael_taylor.vcf" download class="download">Download vCard</a>
     </div>
 </body>
+
 </html>
