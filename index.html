@@ -60,13 +60,15 @@
         .download {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 20px;
             background-color: #4b0082; /* Indigo Blue */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
         }
 
         /* Download button hover effect */
@@ -77,6 +79,8 @@
         /* Social links styling */
         .social-links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .social-links a {
@@ -95,6 +99,51 @@
             font-size: 50px;
             color: #FFD700; /* Gold color */
             margin-bottom: 15px;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .download {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+
+            .social-links a {
+                font-size: 1.1em;
+                margin: 0 8px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        /* Media query for very small screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .download {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+
+            .chi-rho {
+                font-size: 45px;
+            }
         }
     </style>
 </head>
