@@ -1,189 +1,61 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Taylor - Digital Business Card</title>
-    <style>
-        /* General body styling */
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f9f6ec; /* Cream/Off-White background */
-            background: linear-gradient(to bottom, #f9f6ec, #f2ede1);
-        }
-
-        /* Card container styling */
-        .card {
-            background-color: #ffffff; /* White card */
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Elegant shadow */
-            padding: 30px;
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-            border-top: 5px solid #4b0082; /* Indigo Blue accent */
-        }
-
-        /* Heading styling */
-        h1 {
-            color: #4b0082; /* Indigo Blue */
-            font-size: 2em;
-            margin-bottom: 15px;
-            font-family: 'Palatino Linotype', 'Book Antiqua', serif; /* Elegant font */
-        }
-
-        /* Paragraph styling */
-        p {
-            color: #333; /* Darker text for readability */
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-
-        /* Strong emphasis styling */
-        strong {
-            color: #4b0082; /* Indigo Blue for emphasis */
-        }
-
-        /* Italics styling */
-        em {
-            color: #006400; /* Emerald Green for a special touch */
-        }
-
-        .testimonial {
-            font-style: italic;
-            color: #333;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f2ede1; /* Optional light background color */
-            border-left: 5px solid #4b0082; /* Indigo left border */
-        }
-
-        /* Download button styling */
-        .download {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background-color: #4b0082; /* Indigo Blue */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        /* Download button hover effect */
-        .download:hover {
-            background-color: #006400; /* Emerald Green on hover */
-        }
-
-        /* Social links styling */
-        .social-links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .social-links a {
-            margin: 0 10px;
-            color: #006400; /* Emerald Green */
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        .social-links a:hover {
-            color: #4b0082; /* Indigo Blue on hover */
-        }
-
-        /* Placeholder for the Chi-Rho symbol */
-        .chi-rho {
-            font-size: 50px;
-            color: #FFD700; /* Gold color */
-            margin-bottom: 15px;
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            p {
-                font-size: 1em;
-            }
-
-            .download {
-                padding: 10px 15px;
-                font-size: 1em;
-            }
-
-            .social-links a {
-                font-size: 1.1em;
-                margin: 0 8px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
-
-        /* Media query for very small screens */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6em;
-            }
-
-            p {
-                font-size: 0.9em;
-            }
-
-            .download {
-                font-size: 0.9em;
-                padding: 8px 12px;
-            }
-
-            .chi-rho {
-                font-size: 45px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My New GitHub Pages Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="card">
-        <!-- Placeholder for Chi-Rho symbol -->
-        <div class="chi-rho">☧</div> <!-- Unicode placeholder for Chi-Rho symbol -->
-
-        <!-- Card content -->
-        <h1>Michael Taylor</h1>
-        <p><strong>Administrative Companion</strong></p>
-        <p><em>Nurturing Your Vision, Cultivating Success</em></p>
-        <p>Email: <a href="mailto:michaelntaylor@gmail.com" style="color:#4b0082; text-decoration:none;">michaelntaylor@gmail.com</a></p>
-        <p>Phone: <a href="tel:+16475351015" style="color:#4b0082; text-decoration:none;">(647) 535-1015 (WhatsApp Available)</a></p>
-        <p>Address: 6D-7398 Yonge St UN641, Thornhill, ON L4J 8J2, CA</p>
-        <p><strong>Note:</strong> ☧ In the quiet spaces between tasks and triumphs, we identify the path to your goals. I provide focused, one-on-one support, carefully discerning the subtle cues that drive your decisions. Let's explore the map of your aspirations together.
-            <blockquote class="testimonial"> "Michael has an uncanny ability to navigate us through challenging waters, steering us confidently towards the shores of our aspirations." 
-                <br>- Heather Gordon, Fellow Voyager.
-            </blockquote>
-        I'm ready to transform your vision into tangible results, with every decision informed by genuine insight and practical solutions.</p>
-
-        <!-- Social Media Links -->
-        <div class="social-links">
-            <a href="https://aitaylor.github.io/BusinessCard" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/PartingMists" target="_blank">LinkedIn</a>
-        </div>
-        <!-- Download vCard button -->
-        <a href="card.vcf" download class="download">Download vCard</a>
-    </div>
+  <h1>Welcome to My New GitHub Pages Site</h1>
+  <p>This is a simple static site hosted on GitHub Pages.</p>
 </body>
-
 </html>
