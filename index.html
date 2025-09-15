@@ -42,20 +42,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My New GitHub Pages Site</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-  </style>
+  <title>Erol Blackburn Construction Consulting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Welcome to My New GitHub Pages Site</h1>
-  <p>This is a simple static site hosted on GitHub Pages.</p>
+<body class="bg-gray-100 font-sans">
+  <!-- Header/Hero Section -->
+  <header class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Erol Blackburn Construction Consulting</h1>
+      <p class="text-xl mb-6">Building Your Dream Home with Expertise and Care</p>
+      <p class="text-lg mb-8">Based in Scarborough, Toronto, Erol "Brady" Blackburn offers expert consulting and hands-on construction for home projects across the GTA and Jamaica.</p>
+      <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">Contact Brady Today</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Meet Brady – Your Trusted Construction Expert</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        Erol "Brady" Blackburn is a seasoned construction professional with extensive experience in building and renovating homes across the Greater Toronto Area and Jamaica. Known for his hands-on approach and meticulous attention to detail, Brady has a reputation for turning visions into reality. From constructing entire homes from the ground up to rebuilding his own Scarborough residence from scratch, Brady combines real-world expertise with a passion for quality craftsmanship. Whether you need consulting to plan your project or a reliable contractor to get the job done, Brady is your go-to expert.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Comprehensive Home Construction & Consulting Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Home Construction</h3>
+          <p class="text-gray-700">Full builds for new homes, from foundation to finishing touches.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Renovations & Remodels</h3>
+          <p class="text-gray-700">Kitchen upgrades, bathroom makeovers, and home additions.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Consulting</h3>
+          <p class="text-gray-700">Expert advice on project planning, budgeting, and compliance with local regulations.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Specialty Projects</h3>
+          <p class="text-gray-700">Custom designs, eco-friendly builds, and accessibility modifications.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Jamaica Projects</h3>
+          <p class="text-gray-700">Experience delivering high-quality homes in tropical climates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Our Work – Building Dreams, One Home at a Time</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Scarborough Family Home (2020)</h3>
+          <p class="text-gray-700">Brady rebuilt his own home in Scarborough from the ground up after purchasing a fixer-upper. He managed every aspect, from structural design to plumbing and electrical work, creating a modern, energy-efficient home tailored to his family’s needs. The project was completed in 18 months, overcoming challenges like supply chain delays during the pandemic.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Etobicoke Kitchen & Addition (2018)</h3>
+          <p class="text-gray-700">A client in Etobicoke hired Brady to renovate their outdated kitchen and add a new family room. Brady consulted on material choices, designed a layout to maximize natural light, and completed the project under budget, earning praise for his problem-solving and clean worksite.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4">Jamaica Vacation Home (2015)</h3>
+          <p class="text-gray-700">In Jamaica, Brady led the construction of a 3-bedroom vacation home designed to withstand tropical weather. He incorporated local materials and sustainable practices, finishing the project in 12 months while navigating logistical challenges of working abroad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">What Our Clients Say</h2>
+      <blockquote class="text-lg text-gray-700 max-w-3xl mx-auto italic">
+        "Brady transformed our outdated bungalow into a modern masterpiece. His attention to detail and ability to solve problems on the fly were incredible. He kept us informed every step of the way and finished ahead of schedule. We couldn’t be happier!"<br>
+        <span class="block text-right mt-4 font-semibold">– Sarah & Michael T., Scarborough, ON</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">Get in Touch with Brady</h2>
+      <p class="text-lg text-gray-700 mb-6">Ready to start your home project? Contact Erol "Brady" Blackburn for expert consulting or hands-on construction services.</p>
+      <p class="text-lg text-gray-700 mb-4"><strong>Location:</strong> Scarborough, Toronto, ON</p>
+      <p class="text-lg text-gray-700 mb-4"><strong>Email:</strong> erol@blackburnconstruction.ca <em>(Placeholder, update with actual email)</em></p>
+      <p class="text-lg text-gray-700 mb-4"><strong>Phone:</strong> (416) 555-1234 <em>(Placeholder, update with actual number)</em></p>
+      <p class="text-lg text-gray-700 mb-4"><strong>Service Areas:</strong> Greater Toronto Area (GTA) and select projects in Jamaica</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Erol Blackburn Construction Consulting. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
